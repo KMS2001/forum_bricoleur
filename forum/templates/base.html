@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}Forum Bricoleur{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>Forum Bricoleur</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Accueil</a></li>
+                <li><a href="{% url 'login' %}">Se connecter</a></li>
+                <li><a href="{% url 'register' %}">S'inscrire</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2024 Forum Bricoleur</p>
+    </footer>
+</body>
+</html>

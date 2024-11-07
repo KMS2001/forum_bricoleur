@@ -1,0 +1,31 @@
+<!-- templates/forum/detail_publication.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Détails de la Publication</title>
+</head>
+<body>
+    <h1>{{ publication.title }}</h1>
+    <p>Publié par {{ publication.author }} le {{ publication.created_at }}</p>
+    <p>{{ publication.content }}</p>
+
+    <h2>Commentaires</h2>
+    <ul>
+        {% for commentaire in commentaires %}
+            <li>
+                <strong>{{ commentaire.author }}:</strong> {{ commentaire.content }} - {{ commentaire.created_at }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h3>Ajouter un commentaire</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Publier</button>
+    </form>
+
+    <a href="{% url 'liste_publications' %}">Retour à la liste des publications</a>
+</body>
+</html>

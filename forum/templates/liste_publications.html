@@ -1,0 +1,20 @@
+<!-- templates/forum/liste_publications.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Publications</title>
+</head>
+<body>
+    <h1>Publications</h1>
+    <a href="{% url 'creer_publication' %}">Créer une nouvelle publication</a>
+    <ul>
+        {% for publication in publications %}
+            <li>
+                <h2><a href="{% url 'detail_publication' publication.id %}">{{ publication.title }}</a></h2>
+                <p>Publié par {{ publication.author }} le {{ publication.created_at }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

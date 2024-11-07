@@ -1,0 +1,18 @@
+<!-- templates/forum/creer_publication.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Créer une Publication</title>
+</head>
+<body>
+    <h1>Créer une nouvelle publication</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Publier</button>
+    </form>
+
+    <a href="{% url 'liste_publications' %}">Retour à la liste des publications</a>
+</body>
+</html>
